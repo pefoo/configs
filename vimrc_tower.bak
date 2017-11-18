@@ -72,17 +72,42 @@ set lazyredraw
 " use System clipboard
 set clipboard=unnamedplus
 
+execute pathogen#infect()
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:neocomplete#enable_at_startup = 1
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+
 " enable usual backspace mode
 set backspace=indent,eol,start
 autocmd BufNewFile,BufRead *.template set syntax=html
 
+" Plugin Manager
+call plug#begin('~/.vim/plugged')
+
+" Fuzzy search
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+call plug#end()
+
 " Custom Mappings
-"nmap , :Files<CR>
-"nmap - :Buffers<CR>
-
-"
-" PLUGINS
-"
-
-" enable clang
-let g:completor_clang_binary = '/usr/bin/clang'
+nmap , :Files<CR>
+nmap - :Buffers<CR>
