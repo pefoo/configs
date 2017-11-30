@@ -79,6 +79,10 @@ autocmd BufNewFile,BufRead *.template set syntax=html
 " Custom Mappings
 "nmap , :Files<CR>
 "nmap - :Buffers<CR>
+" Use tab so select completor completion
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
 "
 " PLUGINS
