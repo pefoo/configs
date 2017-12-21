@@ -116,8 +116,8 @@ if ! shopt -oq posix; then
 fi
 
 # Bash promp color
-PS1='\[\033[1;37m\]\u@\h:\w $ \[\033[0m\]'
-PROMPT_DIRTRIM=4 
+PS1='\[\033[1;37m\]\u@\h:\w\[\033[0;32m\]$(declare -F __git_ps1 &>/dev/null && __git_ps1 "(%s)")\[\033[0m\]$ '
+PROMPT_DIRTRIM=1 
 # Bash Title 
 case "$TERM" in
 xterm*|rxvt*)
@@ -127,8 +127,8 @@ xterm*|rxvt*)
     ;;
 esac
 
-DIR__BA=/home/peepe/studium/BA/arbeit/
-alias DIR='cat ~/.bashrc | grep -v alias | grep DIR__'
+alias ldir='cat ~/.bashrc | grep -v alias | grep _DIR_'
+DIR__MA="/home/peepe/Dokumente/master/1_Semester/"
 
 alias cppstylecheck='cppcheck --enable=all -v . | grep -v "Checking\|\d"'
 
@@ -138,3 +138,9 @@ alias cppstylecheck='cppcheck --enable=all -v . | grep -v "Checking\|\d"'
 eval "`dircolors -b $DIR_COLORS`"
 alias ls="ls --color=auto"
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Alias for often used ssh connections
+alias ssh-mintvm='ssh -X peepe@mint-vm.fritz.box'
+alias ssh-odroid='ssh odroid@odroid.fritz.box'
