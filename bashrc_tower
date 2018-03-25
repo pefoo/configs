@@ -116,8 +116,8 @@ if ! shopt -oq posix; then
 fi
 
 # Bash promp color
-PS1='\[\033[1;37m\]\u@\h:\w\[\033[0;32m\]$(declare -F __git_ps1 &>/dev/null && __git_ps1 "(%s)")\[\033[0m\]$ '
-PROMPT_DIRTRIM=1 
+PS1=$'\[\033[1;32m\]\u@\h:\[\033[1;37m\]\w\[\033[0;32m\]$(declare -F __git_ps1 &>/dev/null && __git_ps1 "(%s)")\[\033[0m\]\n\[\033[1;31m\]  \u2937 \[\033[0m\]'
+PROMPT_DIRTRIM=8
 # Bash Title 
 case "$TERM" in
 xterm*|rxvt*)
@@ -144,3 +144,6 @@ alias ls="ls --color=auto"
 # Alias for often used ssh connections
 alias ssh-mintvm='ssh -X peepe@mint-vm.fritz.box'
 alias ssh-odroid='ssh odroid@odroid.fritz.box'
+
+# Plugins
+source ~/apps/goto/goto.bash
