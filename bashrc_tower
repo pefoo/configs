@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=999
+HISTFILESIZE=999
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -119,7 +119,7 @@ fi
 source /usr/lib/git-core/git-sh-prompt 
 export GIT_PS1_SHOWCOLORHINTS=true
 export GIT_PS1_SHOWDIRTYSTATE=true
-PS1=$'\[\033[1;32m\]\u@\h:\[\033[1;37m\]\w\[\033[0;32m\]$(declare -F __git_ps1 &>/dev/null && __git_ps1 "(%s)")\[\033[0m\]\n\[\033[1;31m\][\!]\u2937 \[\033[0m\]'
+PS1=$'\[\033[1;37m\](\[\033[1;0;32m\]\u@\h\[\033[1;37m\])-$(declare -F __git_ps1 &>/dev/null && __git_ps1 "(\[\033[0;36m\]%s\[\033[1;37m\])-")\[\033[1;37m\](\[\033[1;37m\]\w)\[\033[0m\]\n\[\033[1;31m\][\!]\u2937 \[\033[0m\]'
 PROMPT_DIRTRIM=8
 # Bash Title 
 case "$TERM" in
