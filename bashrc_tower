@@ -89,8 +89,6 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -lh --group-directories-first'
 
-
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -115,12 +113,28 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Bash promp color
+#
+# Bash promp setup
+#
+PROMPT_DIRTRIM=8
 source /usr/lib/git-core/git-sh-prompt 
 export GIT_PS1_SHOWCOLORHINTS=true
 export GIT_PS1_SHOWDIRTYSTATE=true
-PS1=$'\[\033[1;37m\](\[\033[1;0;32m\]\u@\h\[\033[1;37m\])-$(declare -F __git_ps1 &>/dev/null && __git_ps1 "(\[\033[0;36m\]%s\[\033[1;37m\])-")\[\033[1;37m\](\[\033[1;37m\]\w)\[\033[0m\]\n\[\033[1;31m\][\!]\u2937 \[\033[0m\]'
-PROMPT_DIRTRIM=8
+
+# Conditional bash prompt color. 
+PS1=$'\[\033[1;37m\](\[\033[1;0;32m\]\u@\h\[\033[1;37m\])-$(declare -F __git_ps1 &>/dev/null && __git_ps1 "(\[\033[0;36m\]%s\[\033[1;37m\])-")\[\033[1;37m\](\[\033[1;37m\]\w)\[\033[0m\]\n'
+if [ $HOSTNAME == "tower-ubuntu" ];then
+	PS1="$PS1\[\033[1;31m\]"
+elif [ $HOSTNAME == "mint-vm" ];then
+	PS1="$PS1\[\033[1;34m\]"
+elif [ $HOSTNAME == "odroid" ];then
+	PS1="$PS1\[\033[1;32m\]"
+else
+	PS1="$PS1\[\033[1;36m\]"
+fi
+PS1+=$'[\!]\u2937 \[\033[0m\]'
+
+
 # Bash Title 
 case "$TERM" in
 xterm*|rxvt*)
@@ -129,24 +143,25 @@ xterm*|rxvt*)
 *)
     ;;
 esac
-
-alias ldir='cat ~/.bashrc | grep -v alias | grep _DIR_'
-DIR__MA="/home/peepe/Dokumente/master/1_Semester/"
-
-alias cppstylecheck='cppcheck --enable=all -v . | grep -v "Checking\|\d"'
-
-
 [ -e "$HOME/.dircolors" ] && DIR_COLORS="$HOME/.dircolors"
 [ -e "$DIR_COLORS" ] || DIR_COLORS=""
 eval "`dircolors -b $DIR_COLORS`"
 alias ls="ls --color=auto"
 
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+#
+# Alias 
+#
 
+alias cppstylecheck='cppcheck --enable=all -v . | grep -v "Checking\|\d"'
 # Alias for often used ssh connections
 alias ssh-mintvm='ssh -X peepe@mint-vm.fritz.box'
 alias ssh-odroid='ssh odroid@odroid.fritz.box'
 
+#
 # Plugins
-source ~/apps/goto/goto.bash
+#
+if [ -f ~/apps/goto/goto.bash ]; then
+	source ~/apps/goto/goto.bash
+fi
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
