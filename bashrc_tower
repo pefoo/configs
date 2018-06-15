@@ -125,7 +125,7 @@ export GIT_PS1_SHOWDIRTYSTATE=true
 PS1=$'\[\033[1;37m\](\[\033[1;0;32m\]\u@\h\[\033[1;37m\])-$(declare -F __git_ps1 &>/dev/null && __git_ps1 "(\[\033[0;36m\]%s\[\033[1;37m\])-")\[\033[1;37m\](\[\033[1;37m\]\w)\[\033[0m\]\n'
 if [ $HOSTNAME == "tower-ubuntu" ];then
 	PS1="$PS1\[\033[1;31m\]"
-elif [ $HOSTNAME == "mint-vm" ];then
+elif [ $HOSTNAME == "mint-VM" ];then
 	PS1="$PS1\[\033[1;34m\]"
 elif [ $HOSTNAME == "odroid" ];then
 	PS1="$PS1\[\033[1;32m\]"
