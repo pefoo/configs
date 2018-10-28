@@ -87,6 +87,8 @@ set clipboard=unnamedplus
 " enable usual backspace mode
 set backspace=indent,eol,start
 autocmd BufNewFile,BufRead *.template set syntax=html
+set expandtab
+set tabstop=2
 
 "
 " Custom Mappings
