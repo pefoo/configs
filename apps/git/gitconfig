@@ -1,0 +1,37 @@
+[alias]
+  l = log --graph --pretty=custom
+  s = status 
+
+[color "branch"]
+  current = green bold
+  local = green
+  remote = yellow
+
+[color "diff"]
+  frag = magenta
+  meta = yellow
+  new = green
+  old = red
+  newMoved = cyan
+  oldMoved = blue
+
+[color "status"]
+  added = green reverse
+  changed = yellow reverse
+  untracked = red reverse
+
+[user]
+	mail = pepus.halt@gmail.com
+	name = peepe
+	email = pepus.halt@gmail.com
+
+[core]
+	editor = vim
+
+[pretty]
+  custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
+  #                     │        │            │            │             └─ author name
+  #                     │        │            │            └─ message
+  #                     │        │            └─ date (relative)
+  #                     │        └─ decorations (branch, heads or tags)
+  #                     └─ hash (abbreviated)
