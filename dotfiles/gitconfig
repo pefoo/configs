@@ -20,11 +20,6 @@
   changed = yellow reverse
   untracked = red reverse
 
-[user]
-	mail = pepus.halt@gmail.com
-	name = peepe
-	email = pepus.halt@gmail.com
-
 [core]
 	editor = vim
 
@@ -35,3 +30,6 @@
   #                     │        │            └─ date (relative)
   #                     │        └─ decorations (branch, heads or tags)
   #                     └─ hash (abbreviated)
+
+ [include]
+  path = ~/.gitconfig.local
