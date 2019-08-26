@@ -167,4 +167,3 @@ alias ssh-uniX='ssh -X xe74wiz@login.fmi.uni-jena.de'
 if [ -f ~/apps/goto/goto.bash ]; then
 	source ~/apps/goto/goto.bash
 fi
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
