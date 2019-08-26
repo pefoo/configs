@@ -155,8 +155,11 @@ alias ls="ls --color=auto"
 
 alias cppstylecheck='cppcheck --enable=all -v . | grep -v "Checking\|\d"'
 # Alias for often used ssh connections
+alias startvm-mint='vboxmanage startvm MintCinnamon --type headless'
 alias ssh-mintvm='ssh -X peepe@mint-vm.fritz.box'
-alias ssh-odroid='ssh odroid@odroid.fritz.box'
+alias ssh-odroid='ssh peepe@odroid.fritz.box'
+alias ssh-uni='ssh xe74wiz@login.fmi.uni-jena.de'
+alias ssh-uniX='ssh -X xe74wiz@login.fmi.uni-jena.de'
 
 #
 # Plugins
