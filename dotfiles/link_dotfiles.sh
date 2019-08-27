@@ -4,8 +4,20 @@
 # Link dot files. 
 #
 
+while getopts "b:" arg; do
+  case $arg in
+    # Optionally pass the base path for dot files 
+    b)
+    dotfiles_path="$OPTARG"
+    ;;
+  esac
+done
+
 # Dot files to link
-dotfiles_path=$(dirname $(realpath $0))
+
+if [ -z "$dotfiles_path" ];then 
+  dotfiles_path=$(dirname $(realpath $0))
+fi
 declare -A dot_files=(
   [$dotfiles_path/bashrc]="$HOME/.bashrc"
   [$dotfiles_path/tmux.conf]="$HOME/.tmux.conf"
