@@ -4,12 +4,18 @@
 # Link dot files. 
 #
 
-while getopts "b:" arg; do
+while getopts "b:u:m:" arg; do
   case $arg in
     # Optionally pass the base path for dot files 
     b)
-    dotfiles_path="$OPTARG"
-    ;;
+      dotfiles_path="$OPTARG"
+      ;;
+    u)
+      git_user="$OPTARG"
+      ;;
+    m)
+      git_mail="$OPTARG"
+      ;;
   esac
 done
 
@@ -28,7 +34,7 @@ declare -A dot_files=(
 
 # Log to console (yellow)
 function log_console {
-  echo -e "\e[93m${1}\e[39m"
+  echo -e "\e[92m${1}\e[39m"
 }
 
 # print linked dot files 
@@ -42,10 +48,18 @@ function log_dot_file {
 # Create local git user config (contains user name and mail)
 function make_gitconfig_local {
   local guser gmail
-  echo -en "\e[92mEnter a user name for your git config:\e[39m "
-  read guser
-  echo -en "\e[92mEnter an email for your git config:\e[39m "
-  read gmail
+  if [ ! -z "$git_user" ]; then
+    guser="$git_user"
+  else 
+    echo -en "\e[92mEnter a user name for your git config:\e[39m "
+    read guser
+  fi
+  if [ ! -z "$git_mail" ]; then
+    gmail="$git_mail"
+  else
+    echo -en "\e[92mEnter an email for your git config:\e[39m "
+    read gmail
+  fi
 
   local gc_local="$HOME/.gitconfig.local"
   if [ -f "$gc_local" ]; then
