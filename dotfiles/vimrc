@@ -141,3 +141,9 @@ nnoremap <c-l> :CtrlPTag<CR>
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
+"
+" User files 
+"
+if filereadable(expand("~/.vimtags"))
+  source ~/.vimtags
+endif
