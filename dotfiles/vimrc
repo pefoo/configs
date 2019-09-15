@@ -131,3 +131,13 @@ let g:completor_clang_binary = '/usr/bin/clang'
 " airline
 "
 let g:airline#extensions#tabline#enabled = 1
+
+"
+" ctrlp
+"
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_map = '<c-t>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
