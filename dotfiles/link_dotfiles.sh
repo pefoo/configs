@@ -30,6 +30,7 @@ declare -A dot_files=(
   [$dotfiles_path/vimrc]="$HOME/.vimrc"
   [$dotfiles_path/inputrc]="$HOME/.inputrc"
   [$dotfiles_path/gitconfig]="$HOME/.gitconfig"
+  [$dotfiles_path/profile]="$HOME/.profile"
 )
 
 # Log to console (yellow)
