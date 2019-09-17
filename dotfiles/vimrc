@@ -103,6 +103,13 @@ nnoremap <C-N> :bn<CR>
 nnoremap <C-P> :bp<CR>
 
 "
+" User files 
+"
+if filereadable(expand("~/.vimtags"))
+  source ~/.vimtags
+endif
+
+"
 " (Plugin) specific settings
 "
 
@@ -142,8 +149,21 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 "
-" User files 
+" nerdtree and nerdtree git integration 
 "
-if filereadable(expand("~/.vimtags"))
-  source ~/.vimtags
-endif
+autocmd vimenter * NERDTree
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let g:NERDTreeIndicatorMapCustom = {
+  \ "Modified"  : "*",
+  \ "Staged"    : "+",
+  \ "Untracked" : "-",
+  \ "Renamed"   : "->",
+  \ "Unmerged"  : "=",
+  \ "Deleted"   : "X",
+  \ "Dirty"     : "D",
+  \ "Clean"     : "v",
+  \ 'Ignored'   : 'i',
+  \ "Unknown"   : "?"
+  \ }
+
