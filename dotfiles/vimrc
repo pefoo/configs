@@ -151,7 +151,8 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 "
 " nerdtree and nerdtree git integration 
 "
-autocmd vimenter * NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let g:NERDTreeIndicatorMapCustom = {
