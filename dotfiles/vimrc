@@ -90,6 +90,10 @@ autocmd BufNewFile,BufRead *.template set syntax=html
 set expandtab
 set tabstop=2
 
+" spelling 
+set spelllang=en_us,de
+autocmd FileType markdown setlocal spell 
+
 "
 " Custom Mappings
 "
