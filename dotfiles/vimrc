@@ -92,7 +92,7 @@ set tabstop=2
 
 " spelling 
 set spelllang=en_us,de
-autocmd FileType markdown setlocal spell 
+autocmd FileType tex,latexmarkdown setlocal spell 
 
 "
 " Custom Mappings
