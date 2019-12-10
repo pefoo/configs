@@ -74,7 +74,7 @@ endif
 " color scheme
 "
 colorscheme gruvbox
-let g:gruvbox_contrast_dark='hard'
+"let g:gruvbox_contrast_dark='hard'
 set background=dark
 
 " Speed Up vim when Syntax is on
