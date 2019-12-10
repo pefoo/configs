@@ -114,6 +114,18 @@ if ! shopt -oq posix; then
 fi
 
 #
+# tmux history setup 
+#
+# avoid duplicates..
+export HISTCONTROL=ignoredups:erasedups
+
+# append history entries..
+shopt -s histappend
+
+# After each command, save and reload history
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+#
 # Bash promp setup
 #
 PROMPT_DIRTRIM=8
@@ -153,7 +165,7 @@ alias ls="ls --color=auto"
 # Alias 
 #
 
-alias cppstylecheck='cppcheck --enable=all -v . | grep -v "Checking\|\d"'
+alias cppstylecheck='cppcheck --enable=all -v . | grep -v "Checking\|Defines\|Includes\|Platform\|\d"'
 alias dirs='dirs -v'
 # Alias for often used ssh connections
 alias startvm-mint='vboxmanage startvm MintCinnamon --type headless'
