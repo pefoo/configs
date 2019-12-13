@@ -173,3 +173,9 @@ let g:NERDTreeIndicatorMapCustom = {
   \ }
 autocmd FileType tex,latex let NERDTreeIgnore=['\.aux$','\.bbl$','\.bcf$','\.blg$','\.log$','\.lox$','\.out$','\.pdf$','\.run.xml$','\.toc$','\.dvi$','\.fls$','\.fdb_latexmk$']
 
+"
+" Indent guies 
+"
+let g:indent_guides_guide_size = 1 
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
