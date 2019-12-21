@@ -186,6 +186,8 @@ alias gedit='gui gedit'
 alias evince='gui evince'
 alias kolourpaint='gui kolourpaint'
 alias google-chrome='gui google-chrome'
+alias okular='gui okular'
+
 #
 # Plugins
 #
