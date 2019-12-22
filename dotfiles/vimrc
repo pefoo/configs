@@ -152,6 +152,11 @@ nnoremap <c-l> :CtrlPTag<CR>
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
+autocmd FileType tex,latex let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(aux|bbl|bcf|blg|log|lox|out|pdf|run.xml|toc|div|fls|fdb_latexmk)$',
+  \ }
+
 "
 " nerdtree and nerdtree git integration 
 "
