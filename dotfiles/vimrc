@@ -177,6 +177,7 @@ let g:NERDTreeIndicatorMapCustom = {
   \ "Unknown"   : "?"
   \ }
 autocmd FileType tex,latex let NERDTreeIgnore=['\.aux$','\.bbl$','\.bcf$','\.blg$','\.log$','\.lox$','\.out$','\.pdf$','\.run.xml$','\.toc$','\.dvi$','\.fls$','\.fdb_latexmk$']
+autocmd FileType tex,latex setlocal foldmethod=marker
 
 "
 " Indent guies 
