@@ -166,9 +166,12 @@ alias ls="ls --color=auto"
 #
 
 alias cppstylecheck='cppcheck --enable=all -v . | grep -v "Checking\|Defines\|Includes\|Platform\|\d"'
-alias dirs='dirs -v'
+alias d='dirs -v'
+alias pd='pushd'
+alias pd2='pushd +2'
+alias pd3='pushd +3'
+alias pd4='pushd +4'
 # Alias for often used ssh connections
-alias startvm-mint='vboxmanage startvm MintCinnamon --type headless'
 alias ssh-mintvm='ssh -X peepe@mint-vm.fritz.box'
 alias ssh-odroid='ssh peepe@odroid.fritz.box'
 alias ssh-uni='ssh xe74wiz@login.fmi.uni-jena.de'
