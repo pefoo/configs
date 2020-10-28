@@ -73,8 +73,11 @@ endif
 "
 " color scheme
 "
-colorscheme gruvbox
+"colorscheme gruvbox
 "let g:gruvbox_contrast_dark='hard'
+let g:codedark_term256=1
+colorscheme codedark
+let g:airline_theme = 'codedark'
 set background=dark
 
 " Speed Up vim when Syntax is on
@@ -142,6 +145,7 @@ let g:completor_clang_binary = '/usr/bin/clang'
 " airline
 "
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 "
 " ctrlp
