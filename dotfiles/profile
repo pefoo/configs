@@ -22,5 +22,5 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 
-PATH="$PATH:$HOME/scripts/development/cpp:$HOME/scripts/utility"
+PATH="$PATH:$HOME/scripts/development/cpp:$HOME/scripts/utility:$HOME/scripts/development/bash"
 export QT_QPA_PLATFORMTHEME=gtk2
