@@ -205,3 +205,13 @@ set updatetime=100
 "
 let g:tagbar_compact = 1
 let g:tagbar_indent = 1
+
+"
+" Floatterm 
+"
+let g:floaterm_keymap_new = '<F4>'
+let g:floaterm_keymap_prev = '<F2>'
+let g:floaterm_keymap_next = '<F3>'
+let g:floaterm_keymap_toggle = '<F1>'
+let g:floaterm_keymap_kill = '<F5>'
+let g:floaterm_position = 'top'
