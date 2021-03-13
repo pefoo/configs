@@ -4,7 +4,7 @@
 # Link dot files. 
 #
 
-while getopts "b:u:m:" arg; do
+while getopts "cb:u:m:" arg; do
   case $arg in
     # Optionally pass the base path for dot files 
     b)
@@ -16,6 +16,8 @@ while getopts "b:u:m:" arg; do
     m)
       git_mail="$OPTARG"
       ;;
+    c)
+      no_color='true'
   esac
 done
 
@@ -35,14 +37,22 @@ declare -A dot_files=(
 
 # Log to console (yellow)
 function log_console {
-  echo -e "\e[92m${1}\e[39m"
+  if $no_color ;then
+    echo "$1"
+  else 
+    echo -e "\e[92m${1}\e[39m"
+  fi
 }
 
 # print linked dot files 
 # Arg1: The created link
 # Arg2: The the source file
 function log_dot_file {
-  printf "\e[92m%-25s %2s %s\e[39m\n" "${1}" "->" "${2}"
+  if $no_color ;then
+    echo "$1 -> $2"
+  else
+    printf "\e[92m%-25s %2s %s\e[39m\n" "${1}" "->" "${2}"
+  fi
 }
 
 
