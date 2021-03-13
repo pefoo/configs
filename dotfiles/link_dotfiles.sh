@@ -4,6 +4,7 @@
 # Link dot files. 
 #
 
+no_color='false'
 while getopts "cb:u:m:" arg; do
   case $arg in
     # Optionally pass the base path for dot files 
