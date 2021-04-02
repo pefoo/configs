@@ -50,9 +50,9 @@ function log_console {
 # Arg2: The the source file
 function log_dot_file {
   if $no_color ;then
-    echo "$1 -> $2"
+    echo "Created symlink: $1 -> $2"
   else
-    printf "\e[92m%-25s %2s %s\e[39m\n" "${1}" "->" "${2}"
+    printf "\e[92mCreated symlinkL %-25s %2s %s\e[39m\n" "${1}" "->" "${2}"
   fi
 }
 
@@ -75,7 +75,9 @@ function make_gitconfig_local {
 
   local gc_local="$HOME/.gitconfig.local"
   if [ -f "$gc_local" ]; then
-    mv "$gc_local" "$gc_local.bak"
+    echo 'Local git config already exists. Skipping.'
+    return
+    #mv "$gc_local" "$gc_local.bak"
   fi
 
   cat << EOF > "$gc_local"
@@ -92,16 +94,20 @@ EOF
 function link_dot_files {
   log_console "Setting up dot files"
   for file in "${!dot_files[@]}";do
-    log_dot_file ${dot_files[$file]} $file
     # If the dot file exists and is no symlink, create a backup
     if [ -f "${dot_files[$file]}" -a ! -L "${dot_files[$file]}" ]; then
       log_console "Created a backup of your exsting dot file: ${dot_files[$file]}.bak"
       mv "${dot_files[$file]}" "${dot_files[$file]}.bak"
     fi
-    # If the dot file exists and IS a symlink, remove it first 
     if [ -L "${dot_files[$file]}" ]; then
+      # Link already set up
+      if [[ "$(readlink -f "${dot_files[$file]}")" == $file ]]; then
+        echo "Link for $file already exists. Skipping."
+        continue
+      fi
       rm "${dot_files[$file]}"
     fi
+    log_dot_file ${dot_files[$file]} $file
     ln -s "$file" "${dot_files[$file]}"
   done
 }
