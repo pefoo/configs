@@ -126,7 +126,7 @@ shopt -s histappend
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 #
-# Bash promp setup
+# Bash prompt setup
 #
 PROMPT_DIRTRIM=8
 source /usr/lib/git-core/git-sh-prompt 
@@ -136,7 +136,7 @@ export GIT_PS1_SHOWUPSTREAM="verbose"
 
 # Conditional bash prompt color. 
 PS1=$'\[\033[1;37m\](\[\033[1;0;32m\]\u@\h\[\033[1;37m\])-$(declare -F __git_ps1 &>/dev/null && __git_ps1 "(\[\033[0;36m\]%s\[\033[1;37m\])-")\[\033[1;37m\](\[\033[1;37m\]\w)\[\033[0m\]\n'
-if [ $HOSTNAME == "tower-ubuntu" ];then
+if [ $HOSTNAME == "xalafu" ];then
 	PS1="$PS1\[\033[1;31m\]"
 elif [ $HOSTNAME == "mint-VM" ];then
 	PS1="$PS1\[\033[1;34m\]"
@@ -166,17 +166,11 @@ alias ls="ls --color=auto"
 # Alias 
 #
 
-alias cppstylecheck='cppcheck --enable=all -v . | grep -v "Checking\|Defines\|Includes\|Platform\|\d"'
 alias d='dirs -v'
 alias pd='pushd'
 alias pd2='pushd +2'
 alias pd3='pushd +3'
 alias pd4='pushd +4'
-# Alias for often used ssh connections
-alias ssh-mintvm='ssh -X peepe@mint-vm.fritz.box'
-alias ssh-odroid='ssh peepe@odroid.fritz.box'
-alias ssh-uni='ssh xe74wiz@login.fmi.uni-jena.de'
-alias ssh-uniX='ssh -X xe74wiz@login.fmi.uni-jena.de'
 
 # gui apps 
 function gui {
